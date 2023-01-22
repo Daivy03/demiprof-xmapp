@@ -10,7 +10,7 @@
                 Margin="0,15,0,15"
                 FontFamily="MuliBold"
                 FontSize="16"
-                Text="Popular Events" />
+                Text="Tutor" />
             <CollectionView
                 Grid.Row="1"
                 BackgroundColor="Transparent"

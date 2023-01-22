@@ -13,7 +13,7 @@
                 Grid.Row="0"
                 FontFamily="MuliBold"
                 FontSize="16"
-                Text="All Events" />
+                Text="Materie" />
             <CollectionView
                 Grid.Row="1"
                 BackgroundColor="Transparent"
