@@ -75,7 +75,7 @@
                                         FontFamily="MuliRegular"
                                         FontSize="11"
                                         Text="{Binding location}" />
-                                </Grid
+                                </Grid>
                             </Grid>
                         </Frame>
                     </DataTemplate>

@@ -42,7 +42,7 @@
                                     FontFamily="MuliBlack"
                                     FontSize="20"
                                     Text="PROF"
-                                    TextColor="#FFA700" />
+                                    TextColor="#FF6D00" />
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -190,7 +190,7 @@
                         FontSize="12"
                         HorizontalOptions="FillAndExpand"
                         HorizontalTextAlignment="Center"
-                        Text="Search"
+                        Text="Cerca"
                         VerticalTextAlignment="Center" />
                 </Grid>
                 <Frame.GestureRecognizers>
@@ -226,7 +226,7 @@
                         FontSize="12"
                         HorizontalOptions="FillAndExpand"
                         HorizontalTextAlignment="Center"
-                        Text="Favorites"
+                        Text="Preferiti"
                         VerticalTextAlignment="Center" />
                 </Grid>
                 <Frame.GestureRecognizers>

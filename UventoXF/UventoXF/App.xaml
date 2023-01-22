@@ -11,6 +11,6 @@
             <Setter Property="TextColor" Value="White" />
             <Setter Property="FontFamily" Value="MuliRegular" />
         </Style>
-        <Color x:Key="orange">#FFA700</Color>
+        <Color x:Key="orange">#FF6D00</Color>
     </Application.Resources>
 </Application>

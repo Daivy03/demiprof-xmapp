@@ -75,25 +75,33 @@ namespace UventoXF.ViewModels
         {
             EventItems.Add(new EventItem()
             {
-                title = "Sports Meet in Galaxy Field",
-                date = "Jan 12, 2021",
+                title = "Nicola Sottoferro",
+ //               date = "Jan 12, 2021",
                 location = "Greenfields, Sector 42, Faridabad",
                 image = "event1.png"
             });
 
             EventItems.Add(new EventItem()
             {
-                title = "Art & Meet in Street Plaza",
-                date = "Jan 12, 2021",
+                title = "Nicotra Fabio",
+//                date = "Jan 12, 2021",
                 location = "Galaxyfields, Sector 22, Faridabad",
                 image = "event2.png"
             });
 
             EventItems.Add(new EventItem()
             {
-                title = "Youth Music in Galleria",
-                date = "Jan 12, 2021",
+                title = "Davide Reale",
+//                date = "Jan 12, 2021",
                 location = "Greenfields, Sector 42, Faridabad",
+                image = "event3.png"
+            });
+
+            EventItems.Add(new EventItem()
+            {
+                title = "Alessandro Bianchi",
+ //               date = "Jan 12, 2021",
+                location = "Pandino (CR)",
                 image = "event3.png"
             });
         }

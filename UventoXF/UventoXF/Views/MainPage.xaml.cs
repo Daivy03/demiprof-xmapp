@@ -27,8 +27,8 @@ namespace UventoXF.Views
                     frmHome.Padding = new Thickness(22, 5);
                     frmHome.BackgroundColor = Color.FromHex("#102733");
                     lbHome.IsVisible = true;
-                    lbHome.TextColor = Color.FromHex("#FFA700");
-                    lbIconHome.TextColor = Color.FromHex("#FFA700");
+                    lbHome.TextColor = Color.FromHex("#FF6D00");
+                    lbIconHome.TextColor = Color.FromHex("#FF6D00");
                     frameSearch.Padding = new Thickness(0);
                     frameSearch.BackgroundColor = Color.Transparent;
                     lbSearch.IsVisible = false;
@@ -53,8 +53,8 @@ namespace UventoXF.Views
                     frmSearch.Padding = new Thickness(22, 5);
                     frmSearch.BackgroundColor = Color.FromHex("#102733");
                     lbSearch.IsVisible = true;
-                    lbSearch.TextColor = Color.FromHex("#FFA700");
-                    lbIconSearch.TextColor = Color.FromHex("#FFA700");
+                    lbSearch.TextColor = Color.FromHex("#FF6D00");
+                    lbIconSearch.TextColor = Color.FromHex("#FF6D00");
                     frameFavorite.Padding = new Thickness(0);
                     frameFavorite.BackgroundColor = Color.Transparent;
                     lbFavorite.IsVisible = false;
@@ -79,8 +79,8 @@ namespace UventoXF.Views
                     frmFavorite.Padding = new Thickness(22, 5);
                     frmFavorite.BackgroundColor = Color.FromHex("#102733");
                     lbFavorite.IsVisible = true;
-                    lbFavorite.TextColor = Color.FromHex("#FFA700");
-                    lbIconFavorite.TextColor = Color.FromHex("#FFA700");
+                    lbFavorite.TextColor = Color.FromHex("#FF6D00");
+                    lbIconFavorite.TextColor = Color.FromHex("#FF6D00");
                 }
             });
         }
