@@ -73,7 +73,7 @@
                         Grid.Row="0"
                         FontFamily="MuliBlack"
                         FontSize="20"
-                        Text="Ciao, GUserId!" />
+                        Text="Ciao, Fabio !" />
                     <Label
                         Grid.Row="1"
                         FontFamily="MuliBold"
@@ -94,7 +94,7 @@
                         Aspect="AspectFit"
                         HeightRequest="50"
                         HorizontalOptions="Center"
-                        Source="avatar"
+                        Source="lettern"
                         VerticalOptions="Center" />
                 </Grid>
                 <control:CalendarCarouselView

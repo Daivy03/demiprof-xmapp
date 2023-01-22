@@ -2,7 +2,8 @@
 <ContentView
     x:Class="UventoXF.Controls.ListEventsView"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fonticons="clr-namespace:UventoXF.FontIcons">
     <ContentView.Content>
         <Grid RowDefinitions="auto, *">
             <Label
@@ -10,7 +11,14 @@
                 Margin="0,15,0,15"
                 FontFamily="MuliBold"
                 FontSize="16"
-                Text="Tutor" />
+                Text="In Evidenza" />
+            <Image
+                Grid.Row="0"
+                Margin="-160,15,0,15"
+                Aspect="AspectFit"
+                HeightRequest="15"
+                Source="fire" />
+            
             <CollectionView
                 Grid.Row="1"
                 BackgroundColor="Transparent"
@@ -27,7 +35,7 @@
                             BackgroundColor="#1A1A1A"
                             CornerRadius="10"
                             HasShadow="False"
-                            HeightRequest="90"
+                            HeightRequest="100"
                             IsClippedToBounds="True">
                             <Grid ColumnDefinitions="*, auto" RowDefinitions="auto, auto, auto">
                                 <Image
@@ -39,9 +47,9 @@
                                 <Label
                                     Grid.Row="0"
                                     Grid.Column="0"
-                                    Margin="20,10,0,0"
+                                    Margin="20,20,0,0"
                                     FontFamily="MuliBold"
-                                    FontSize="Small"
+                                    FontSize="Subtitle"
                                     Text="{Binding title}" />
                                 <Grid
                                     Grid.Row="1"
@@ -51,30 +59,51 @@
                                     <Image
                                         Grid.Column="0"
                                         Aspect="AspectFit"
-                                        HeightRequest="10"
-                                        Source="calendar" />
-                                    <Label
+                                        HeightRequest="20"
+                                        Source="goldstar" />
+                                    <Image
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        Margin="0,0,180,0"
+                                        Aspect="AspectFit"
+                                        HeightRequest="20"
+                                        Source="goldstar" />
+                                    <Image
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        Margin="0,0,120,0"
+                                        Aspect="AspectFit"
+                                        HeightRequest="20"
+                                        Source="starunfilled" />
+                                    <!--<Label
                                         Grid.Column="1"
                                         FontFamily="MuliRegular"
                                         FontSize="11"
-                                        Text="{Binding date}" />
+                                        TextColor="#FFD600"
+                                        Text="{x:Static fonticons:FontIcons.StarOutLine}" />-->
                                 </Grid>
                                 <Grid
                                     Grid.Row="2"
                                     Grid.Column="0"
-                                    Margin="20,0,0,10"
+                                    Margin="10,-30,0,20"
                                     ColumnDefinitions="auto, *">
-                                    <Image
+                                    <!--<Image
                                         Grid.Column="0"
-                                        Margin="0,-2,0,0"
+                                        Margin="0,0,0,0"
                                         Aspect="AspectFit"
-                                        HeightRequest="12"
-                                        Source="location" />
-                                    <Label
-                                        Grid.Column="1"
+                                        HeightRequest="15"
+                                        Source="location" />-->
+                                    <Grid
+                                        >
+                                        <Label
+                                        Grid.Column="0"
+                                        Margin="10,30,0,-15"
                                         FontFamily="MuliRegular"
-                                        FontSize="11"
-                                        Text="{Binding location}" />
+                                        TextTransform="Uppercase"
+                                        FontSize="15"
+                                        Text="{Binding classinfo}" />
+                                    </Grid>
+                                    
                                 </Grid>
                             </Grid>
                         </Frame>

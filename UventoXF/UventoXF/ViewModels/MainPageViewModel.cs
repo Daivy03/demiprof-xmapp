@@ -56,7 +56,7 @@ namespace UventoXF.ViewModels
 
             EventTypes.Add(new EventType()
             {
-                name = "Fisica",
+                name = "Chimica",
                 image = "graduation.png",
                 backgroundColor = "#29404E",
                 textColor = "#FFFFFF"
@@ -77,32 +77,39 @@ namespace UventoXF.ViewModels
             {
                 title = "Nicola Sottoferro",
  //               date = "Jan 12, 2021",
-                location = "Greenfields, Sector 42, Faridabad",
-                image = "event1.png"
+                classinfo = "5^ Informatica CFP",
+                image = "nicola.png"
             });
 
             EventItems.Add(new EventItem()
             {
                 title = "Nicotra Fabio",
 //                date = "Jan 12, 2021",
-                location = "Galaxyfields, Sector 22, Faridabad",
-                image = "event2.png"
+                classinfo = "5^ Informatica",
+                image = "fabio.png"
             });
 
             EventItems.Add(new EventItem()
             {
                 title = "Davide Reale",
 //                date = "Jan 12, 2021",
-                location = "Greenfields, Sector 42, Faridabad",
-                image = "event3.png"
+                classinfo = "5^ Informatica",
+                image = "davide.png"
             });
 
             EventItems.Add(new EventItem()
             {
-                title = "Alessandro Bianchi",
+                title = "Alessandro Rossi",
  //               date = "Jan 12, 2021",
-                location = "Pandino (CR)",
-                image = "event3.png"
+                classinfo = "4^ Meccanica",
+                image = "avatar.png"
+            });
+            EventItems.Add(new EventItem()
+            {
+                title = "Mario Bianchi",
+                //               date = "Jan 12, 2021",
+                classinfo = "5^ Chimica",
+                image = "avatar.png"
             });
         }
 
@@ -119,7 +126,7 @@ namespace UventoXF.ViewModels
                     month = dateInit.ToString("MMM").FirstLetterUpperCase(),
                     dayWeek = new DateTime(dateInit.Year, dateInit.Month, i).DayOfWeek.ToString().Substring(0, 3),
                     selected = i == DateTime.Today.Day,
-                    backgroundColor = i == DateTime.Today.Day ? "#FCCD00" : "Transparent",
+                    backgroundColor = i == DateTime.Today.Day ? "#FF6D00" : "Transparent",
                     textColor = i == DateTime.Today.Day ? "#000000" : "#FFFFFF",
                 });
             }
@@ -137,7 +144,7 @@ namespace UventoXF.ViewModels
             var index = Dates.ToList().FindIndex(p => p.day == model.day && p.dayWeek == model.dayWeek);
             if (index > -1)
             {
-                Dates[index].backgroundColor = "#FCCD00";
+                Dates[index].backgroundColor = "#FF6D00";
                 Dates[index].textColor = "#000000";
                 Dates[index].selected = true;
             }
@@ -155,8 +162,8 @@ namespace UventoXF.ViewModels
             var index = EventTypes.ToList().FindIndex(p => p.name == model.name);
             if (index > -1)
             {
-                EventTypes[index].backgroundColor = "#FCCD00";
-                EventTypes[index].textColor = "#000000";
+                EventTypes[index].backgroundColor = "#FF6D00";
+                EventTypes[index].textColor = "#FF6D00";
                 EventTypes[index].selected = true;
             }
         }
