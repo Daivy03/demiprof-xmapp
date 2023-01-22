@@ -47,8 +47,8 @@ namespace UventoXF.ViewModels
         {
             EventTypes.Add(new EventType()
             {
-                name = "Concert",
-                image = "mic.png",
+                name = "Matematica",
+                image = "math.png",
                 selected = true,
                 backgroundColor = "#FFF",
                 textColor = "#000000"
@@ -56,16 +56,16 @@ namespace UventoXF.ViewModels
 
             EventTypes.Add(new EventType()
             {
-                name = "Sports",
-                image = "ping_pong.png",
+                name = "Fisica",
+                image = "graduation.png",
                 backgroundColor = "#29404E",
                 textColor = "#FFFFFF"
             });
 
             EventTypes.Add(new EventType()
             {
-                name = "Education",
-                image = "graduation.png",
+                name = "Informatica",
+                image = "code.png",
                 backgroundColor = "#29404E",
                 textColor = "#FFFFFF"
             });

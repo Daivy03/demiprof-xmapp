@@ -30,6 +30,12 @@
                             HeightRequest="90"
                             IsClippedToBounds="True">
                             <Grid ColumnDefinitions="*, auto" RowDefinitions="auto, auto, auto">
+                                <Image
+                                    Grid.RowSpan="3"
+                                    Grid.Column="1"
+                                    Aspect="Fill"
+                                    Source="{Binding image}"
+                                    WidthRequest="100" />
                                 <Label
                                     Grid.Row="0"
                                     Grid.Column="0"
@@ -69,13 +75,7 @@
                                         FontFamily="MuliRegular"
                                         FontSize="11"
                                         Text="{Binding location}" />
-                                </Grid>
-                                <Image
-                                    Grid.RowSpan="3"
-                                    Grid.Column="1"
-                                    Aspect="Fill"
-                                    Source="{Binding image}"
-                                    WidthRequest="100" />
+                                </Grid
                             </Grid>
                         </Frame>
                     </DataTemplate>
