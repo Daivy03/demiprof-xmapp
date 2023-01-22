@@ -19,9 +19,13 @@ namespace UventoXF.Views
             BindingContext = new LoginPageViewModel(Navigation);
         }
 
-        private void PasswordDimenticata_Clicked(object sender, EventArgs e)
+        public void PasswordDimenticata_Clicked(object sender, EventArgs e)
         {
 
+        }
+        public void GoogleLogin(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new MainPage();
         }
 
     }

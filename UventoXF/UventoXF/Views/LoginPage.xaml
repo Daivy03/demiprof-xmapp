@@ -100,7 +100,7 @@
                     BorderWidth="1"
                     Margin="10,0,10,0"
                     FontSize="18"
-                    
+                    Clicked="GoogleLogin"
                     HeightRequest="60"
                     CornerRadius="40"
                     BackgroundColor="#FF3D00"/>

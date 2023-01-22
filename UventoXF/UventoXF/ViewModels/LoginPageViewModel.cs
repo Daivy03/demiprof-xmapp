@@ -28,13 +28,13 @@ namespace UventoXF.ViewModels
         {
             await Navigation.PushAsync(new MainPage());
         }
-        private void PasswordDimenticata_Clicked(object sender, EventArgs e)
+        public void PasswordDimenticata_Clicked(object sender, EventArgs e)
         {
 
         }
-        private void LoginBTN_Clicked(object sender, EventArgs e)
+        public void GoogleLogin(object sender, EventArgs e)
         {
-
+            App.Current.MainPage = new MainPage();
         }
     }
 }
