@@ -28,5 +28,13 @@ namespace UventoXF.ViewModels
         {
             await Navigation.PushAsync(new MainPage());
         }
+        private void PasswordDimenticata_Clicked(object sender, EventArgs e)
+        {
+
+        }
+        private void LoginBTN_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

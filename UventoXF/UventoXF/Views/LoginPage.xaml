@@ -74,8 +74,9 @@
                         BackgroundColor="Transparent"
                         RelativeLayout.XConstraint="205"
                         RelativeLayout.YConstraint="-8"
-                        Clicked="PasswordDimenticata_Clicked"
+                        
                         TextTransform="None"/>
+                    <!--Clicked="PasswordDimenticata_Clicked"-->
                 </RelativeLayout>
                 <!-- TODO: Aggiungere metodo per loginBTN -->
                 <Button
@@ -86,22 +87,24 @@
                     BorderWidth="1"
                     Margin="10,0,10,0"
                     FontSize="18"
-                    Clicked="LoginBTN_Clicked"
+                    
                     HeightRequest="60"
                     CornerRadius="40"
                     BackgroundColor="#FF6D00"/>
+                <!--Clicked="LoginBTN_Clicked-->
                 <Button
-                    x:Name="LoginBTN"
+                    x:Name="GLoginBTN"
                     Text="Login con Google"
                     TextColor="#fff"
                     BorderColor="#FD5A01"
                     BorderWidth="1"
                     Margin="10,0,10,0"
                     FontSize="18"
-                    Clicked="LoginBTN_Clicked"
+                    
                     HeightRequest="60"
                     CornerRadius="40"
                     BackgroundColor="#FF3D00"/>
+                <!--Clicked="GLoginBTN_Clicked"-->
 
             </StackLayout>
 
