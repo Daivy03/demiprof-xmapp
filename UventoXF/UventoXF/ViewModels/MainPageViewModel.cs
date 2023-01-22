@@ -57,7 +57,7 @@ namespace UventoXF.ViewModels
             EventTypes.Add(new EventType()
             {
                 name = "Chimica",
-                image = "graduation.png",
+                image = "chimica.png",
                 backgroundColor = "#29404E",
                 textColor = "#FFFFFF"
             });

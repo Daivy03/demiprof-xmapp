@@ -5,7 +5,116 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
     xmlns:fonticons="clr-namespace:UventoXF.FontIcons"
     NavigationPage.HasNavigationBar="False">
-    <Grid>
+
+    <StackLayout>
+        <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto">
+            <StackLayout Grid.Row="4">
+                <Image
+                    HorizontalOptions="Center"
+                    WidthRequest="300"
+                    Source="demiproflogo"/>
+
+                <Frame BorderColor="#fff"
+                       BackgroundColor="Transparent"
+                       Margin="15"
+                       Padding="0"
+                       CornerRadius="30">
+                    
+                </Frame>
+                <Frame BorderColor="#fff"
+                       BackgroundColor="Transparent"
+                       Margin="1"
+                       Padding="25,0,25,0"
+                       HeightRequest="60"
+                       CornerRadius="30">
+                    <Entry TextColor="#fff"
+                           FontSize="18"
+                           Placeholder="Email"
+                           PlaceholderColor="white"/>
+
+                </Frame>
+                <Frame BorderColor="#fff"
+                       BackgroundColor="Transparent"
+                       Margin="1"
+                       Padding="25,0,25,0"
+                       HeightRequest="60"
+                       CornerRadius="30">
+                    <Entry TextColor="#fff"
+                           FontSize="18"
+                           Placeholder="Password"
+                           PlaceholderColor="white"
+                           IsPassword="True"
+                           x:Name="EntryPassword"/>
+
+                </Frame>
+                
+                <RelativeLayout Padding="25">
+
+                    <CheckBox
+                        Color="white"
+                        IsChecked="False"
+                        x:Name="Checkbox"
+                        Margin="15,0,0,0"/>
+                    <!-- TODO: Aggiungere metodo che controlla il cambio della casella che mostra la password -->
+                    <!--CheckedChanged="CheckBox_CheckedChanged"-->
+
+
+                    <Label
+                            Text="Mostra Password"
+                            TextColor="white"
+                            FontSize="18"
+                            RelativeLayout.XConstraint="50"
+                            RelativeLayout.YConstraint="3"/>
+                    <!-- TODO: Aggiungere metodo per recupero della password -->
+                    <Button
+                        x:Name="PasswordDimenticata"
+                        Text="Password Dimenticata?"
+                        TextColor="white"
+                        FontSize="18"
+                        BackgroundColor="Transparent"
+                        RelativeLayout.XConstraint="205"
+                        RelativeLayout.YConstraint="-8"
+                        Clicked="PasswordDimenticata_Clicked"
+                        TextTransform="None"/>
+                </RelativeLayout>
+                <!-- TODO: Aggiungere metodo per loginBTN -->
+                <Button
+                    x:Name="LoginBTN"
+                    Text="Login"
+                    TextColor="#fff"
+                    BorderColor="#FD5A01"
+                    BorderWidth="1"
+                    Margin="10,0,10,0"
+                    FontSize="18"
+                    Clicked="LoginBTN_Clicked"
+                    HeightRequest="60"
+                    CornerRadius="40"
+                    BackgroundColor="#FF6D00"/>
+                <Button
+                    x:Name="LoginBTN"
+                    Text="Login con Google"
+                    TextColor="#fff"
+                    BorderColor="#FD5A01"
+                    BorderWidth="1"
+                    Margin="10,0,10,0"
+                    FontSize="18"
+                    Clicked="LoginBTN_Clicked"
+                    HeightRequest="60"
+                    CornerRadius="40"
+                    BackgroundColor="#FF3D00"/>
+
+            </StackLayout>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateToMainPageCommand}" NumberOfTapsRequired="1" />
+            </Grid.GestureRecognizers>
+
+        </Grid>
+        
+    </StackLayout>
+    
+    
+    <!--<Grid>
         <Grid Margin="20,15,0,0" ColumnDefinitions="auto, auto">
             <Label
                     Grid.Column="0"
@@ -27,5 +136,6 @@
                 <TapGestureRecognizer Command="{Binding NavigateToMainPageCommand}" NumberOfTapsRequired="1" />
             </Grid.GestureRecognizers>
         </Grid>
-    </Grid>
+    </Grid>-->
+    
 </ContentPage>

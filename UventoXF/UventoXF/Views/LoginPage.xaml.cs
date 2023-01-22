@@ -18,5 +18,10 @@ namespace UventoXF.Views
             InitializeComponent();
             BindingContext = new LoginPageViewModel(Navigation);
         }
+
+        private void PasswordDimenticata_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
