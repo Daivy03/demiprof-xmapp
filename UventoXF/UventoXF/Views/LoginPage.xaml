@@ -70,7 +70,8 @@
                         x:Name="PasswordDimenticata"
                         Text="Password Dimenticata?"
                         TextColor="white"
-                        FontSize="18"
+                        FontFamily="MuliBold"
+                        FontSize="17"
                         BackgroundColor="Transparent"
                         RelativeLayout.XConstraint="205"
                         RelativeLayout.YConstraint="-8"
@@ -83,9 +84,10 @@
                     x:Name="LoginBTN"
                     Text="Login"
                     TextColor="#fff"
+                    FontFamily="MuliBold"
                     BorderColor="#FD5A01"
                     BorderWidth="1"
-                    Margin="10,0,10,0"
+                    Margin="10,0,20,0"
                     FontSize="18"
                     
                     HeightRequest="60"
@@ -95,15 +97,35 @@
                 <Button
                     x:Name="GLoginBTN"
                     Text="Login con Google"
-                    TextColor="#fff"
-                    BorderColor="#FD5A01"
+                    TextColor="#000"
+                    FontFamily="MuliBold"
+                    BorderColor="#FFF"
                     BorderWidth="1"
-                    Margin="10,0,10,0"
+                    Padding="15"
+                    Margin="10,1,20,10"
                     FontSize="18"
                     Clicked="GoogleLogin"
                     HeightRequest="60"
                     CornerRadius="40"
-                    BackgroundColor="#FF3D00"/>
+                    
+                    BackgroundColor="#FFF">
+
+                    <!--<FileImageSource
+                            File="google">
+                        </FileImageSource>-->
+
+                    <Button.ImageSource>
+
+
+
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS" Value="googlesvg.svg"/>
+                            <On Platform="Android" Value="googlesvg.svg"/>
+                        </OnPlatform>
+
+                    </Button.ImageSource>
+                    
+                </Button>
                 <!--Clicked="GLoginBTN_Clicked"-->
 
             </StackLayout>

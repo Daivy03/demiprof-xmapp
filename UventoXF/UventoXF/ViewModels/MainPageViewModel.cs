@@ -99,7 +99,7 @@ namespace UventoXF.ViewModels
 
             EventItems.Add(new EventItem()
             {
-                title = "Alessandro Rossi",
+                title = "Alessandra Rossi",
  //               date = "Jan 12, 2021",
                 classinfo = "4^ Meccanica",
                 image = "avatar.png"
