@@ -110,21 +110,17 @@
                     
                     BackgroundColor="#FFF">
 
-                    <!--<FileImageSource
-                            File="google">
-                        </FileImageSource>-->
+
 
                     <Button.ImageSource>
 
+                        <FileImageSource
+                            File="google">
+                        </FileImageSource>
 
-
-                        <OnPlatform x:TypeArguments="ImageSource">
-                            <On Platform="iOS" Value="googlesvg.svg"/>
-                            <On Platform="Android" Value="googlesvg.svg"/>
-                        </OnPlatform>
 
                     </Button.ImageSource>
-                    
+
                 </Button>
                 <!--Clicked="GLoginBTN_Clicked"-->
 
