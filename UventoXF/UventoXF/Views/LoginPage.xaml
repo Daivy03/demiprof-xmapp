@@ -16,15 +16,15 @@
 
                 <Frame BorderColor="#fff"
                        BackgroundColor="Transparent"
-                       Margin="15"
+                       Margin="10"
                        Padding="0"
                        CornerRadius="30">
                     
                 </Frame>
                 <Frame BorderColor="#fff"
                        BackgroundColor="Transparent"
-                       Margin="1"
-                       Padding="25,0,25,0"
+                       Margin="10"
+                       Padding="20,0,25,0"
                        HeightRequest="60"
                        CornerRadius="30">
                     <Entry TextColor="#fff"
@@ -35,8 +35,8 @@
                 </Frame>
                 <Frame BorderColor="#fff"
                        BackgroundColor="Transparent"
-                       Margin="1"
-                       Padding="25,0,25,0"
+                       Margin="10"
+                       Padding="20,0,25,0"
                        HeightRequest="60"
                        CornerRadius="30">
                     <Entry TextColor="#fff"
@@ -79,7 +79,7 @@
                         TextTransform="None"/>
                     <!--Clicked="PasswordDimenticata_Clicked"-->
                 </RelativeLayout>
-                <!-- TODO: Aggiungere metodo per loginBTN -->
+                
                 <Button
                     x:Name="LoginBTN"
                     Text="Login"
@@ -89,11 +89,11 @@
                     BorderWidth="1"
                     Margin="10,0,20,0"
                     FontSize="18"
-                    
+                    Clicked="LoginAuth"
                     HeightRequest="60"
                     CornerRadius="40"
                     BackgroundColor="#FF6D00"/>
-                <!--Clicked="LoginBTN_Clicked-->
+               
                 <Button
                     x:Name="GLoginBTN"
                     Text="Login con Google"
@@ -122,7 +122,15 @@
                     </Button.ImageSource>
 
                 </Button>
-                <!--Clicked="GLoginBTN_Clicked"-->
+
+                <Label
+                            Margin="10,5,0,0"
+                            Text="Non sei registrato? Registrati qui"
+                            TextColor="white"
+                            FontSize="16" />
+                <!-- TODO Agiungere pagina di registrazione-->
+
+
 
             </StackLayout>
 

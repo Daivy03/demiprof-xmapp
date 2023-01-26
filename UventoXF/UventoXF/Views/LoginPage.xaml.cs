@@ -27,6 +27,11 @@ namespace UventoXF.Views
         {
             App.Current.MainPage = new MainPage();
         }
+        
+        public void LoginAuth(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new MainPage();
+        }
 
     }
 }
