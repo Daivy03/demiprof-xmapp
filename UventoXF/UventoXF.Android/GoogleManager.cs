@@ -17,6 +17,7 @@ using UventoXF.Models;
 using UventoXF.Droid;
 using Xamarin.Forms;
 
+
 [assembly: Dependency(typeof(GoogleManager))]
 namespace DemiProf.Droid
 {
@@ -72,6 +73,7 @@ namespace DemiProf.Droid
 					Email = accountt.Email,
 					Picture = new Uri((accountt.PhotoUrl != null ? $"{accountt.PhotoUrl}" : $"https://autisticdating.net/imgs/profile-placeholder.jpg"))
 				}, string.Empty);
+				// TODO Implementare istanze del GoogleUser 
 			}
 			else
 			{
