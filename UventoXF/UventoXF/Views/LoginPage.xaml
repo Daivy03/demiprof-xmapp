@@ -29,6 +29,7 @@
                        CornerRadius="30">
                     <Entry TextColor="#fff"
                            FontSize="18"
+                           x:Name="EntryEmail"
                            Placeholder="Email"
                            PlaceholderColor="white"/>
 

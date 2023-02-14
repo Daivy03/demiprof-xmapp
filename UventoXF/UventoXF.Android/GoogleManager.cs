@@ -16,12 +16,14 @@ using Android.Widget;
 using UventoXF.Models;
 using UventoXF.Droid;
 using Xamarin.Forms;
-
+using DemiProf.Droid;
+using DemiProf.Models;
 
 [assembly: Dependency(typeof(GoogleManager))]
 namespace DemiProf.Droid
 {
-	public class GoogleManager : Java.Lang.Object, IGoogleManager, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener
+    [Obsolete]
+    public class GoogleManager : Java.Lang.Object, IGoogleManager, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener
 	{
 		public Action<GoogleUser, string> _onLoginComplete;
 		public static GoogleApiClient _googleApiClient { get; set; }

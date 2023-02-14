@@ -1,7 +1,13 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using Android.Gms.Auth.Api.SignIn;
+using Android.Gms.Auth.Api;
+using Android.Content;
+using Android.Gms.Common.Apis;
+using DemiProf.Droid;
 
 namespace UventoXF.Droid
 {
@@ -24,6 +30,17 @@ namespace UventoXF.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Android.Content.Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if (requestCode == 1)
+            {
+                GoogleSignInResult result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
+                GoogleManager.Instance.OnAuthCompleted(result);
+            }
+        }
+
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
