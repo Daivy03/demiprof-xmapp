@@ -44,19 +44,28 @@ namespace UventoXF.Views
         }
         private void OnLoginComplete(GoogleUser googleUser, string message)
         {
-            var AvatarIMG = (Image)FindByName("AvatarIMG");
-            if (googleUser != null)
+
+            try
             {
-                GoogleUser = googleUser;
-                EntryEmail.Text = GoogleUser.Name;
-                EntryPassword.Text = GoogleUser.Email;
-                AvatarIMG.Source = GoogleUser.Picture;
-                IsLogedIn = true;
+                var AvatarIMG = (Image)FindByName("AvatarIMG");
+                if (googleUser != null)
+                {
+                    GoogleUser = googleUser;
+                    EntryEmail.Text = GoogleUser.Name;
+                    EntryPassword.Text = GoogleUser.Email;
+                    AvatarIMG.Source = GoogleUser.Picture;
+                    IsLogedIn = true;
+                }
+                else
+                {
+                    DisplayAlert("Message", message, "Ok");
+                }
             }
-            else
+            catch
             {
-                DisplayAlert("Message", message, "Ok");
+
             }
+           
         }
         private void GoogleLogout()
         {
