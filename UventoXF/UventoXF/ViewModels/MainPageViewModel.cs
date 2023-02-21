@@ -61,17 +61,27 @@ namespace UventoXF.ViewModels
         //}
         private async void LoadUserName()
         {
-            var userId = App.Current.Properties["UserId"].ToString();
-            var user = await FirebaseHelper.GetUserById(userId);
-            if (user != null)
+            try
             {
-                UserName = $"{user.FirstName} {user.LastName}";
+                FirebaseHelper firebaseHelper = new FirebaseHelper();
+                User user = await firebaseHelper.GetUserByEmail(App.Current.Properties["UserEmail"].ToString());
+                var userId = user.UserId;
 
+                if (user != null)
+                {
+                    UserName = $"{user.FirstName} {user.LastName}";
+
+                }
+                else
+                {
+                    //UserName = "Anonimo";
+                }
             }
-            else
+            catch(Exception ex)
             {
-                //UserName = "Anonimo";
+                Console.WriteLine(ex.ToString());
             }
+            
         }
 
         public Command SelectDateCommand { get; }

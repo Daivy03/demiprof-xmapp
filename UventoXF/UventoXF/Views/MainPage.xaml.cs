@@ -22,7 +22,13 @@ namespace UventoXF.Views
             base.OnAppearing();
 
             // Recupera l'ID dell'utente dalla proprietà "UserId"
-            string userId = App.Current.Properties["UserId"].ToString();
+            string userId = App.Current.Properties["UserId"]?.ToString();
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                UserLogged.Text = "Anonimo";
+                return;
+            }
 
             // Recupera l'utente dal database Firebase utilizzando l'ID
             User user = await FirebaseHelper.GetUserById(userId);
@@ -35,9 +41,8 @@ namespace UventoXF.Views
             {
                 UserLogged.Text = "Anonimo";
             }
-
-            
         }
+
 
 
         private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)

@@ -23,7 +23,7 @@ public class FirebaseHelper
 
         return users.Select(u => new User
         {
-            Id = u.Object.Id,
+            UserId = u.Object.UserId,
             Email = u.Object.Email,
             FirstName = u.Object.FirstName,
             LastName = u.Object.LastName,
@@ -53,7 +53,7 @@ public class FirebaseHelper
     {
         var firebase = new FirebaseClient(FirebaseConfig.FirebaseUrl);
         var users = await firebase.Child("users").OnceAsync<User>();
-        var user = users.Where(u => u.Object.Id == id).Select(u => u.Object).FirstOrDefault();
+        var user = users.Where(u => u.Object.UserId == id).Select(u => u.Object).FirstOrDefault();
 
         if (user != null)
         {
