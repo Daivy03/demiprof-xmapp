@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UventoXF.ViewModel;
 using UventoXF.Views;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace UventoXF.ViewModels
@@ -40,10 +41,40 @@ namespace UventoXF.ViewModels
         {
 
         }
-        public void GoogleLogin(object sender, EventArgs e)
+        private bool isLoginEnabled;
+        public bool IsLoginEnabled
         {
-        //    App.Current.MainPage = new MainPage();
-        Navigation.PushAsync(new RegisterPage());
+            get { return isLoginEnabled; }
+            set
+            {
+                isLoginEnabled = value;
+                OnPropertyChanged(nameof(IsLoginEnabled));
+            }
         }
+
+        private string password;
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                password = value;
+                IsLoginEnabled = !string.IsNullOrWhiteSpace(password) && !string.IsNullOrWhiteSpace(Email);
+                OnPropertyChanged(nameof(Password));
+            }
+        }
+
+        private string email;
+        public string Email
+        {
+            get { return email; }
+            set
+            {
+                email = value;
+                IsLoginEnabled = !string.IsNullOrWhiteSpace(password) && !string.IsNullOrWhiteSpace(Email);
+                OnPropertyChanged(nameof(Email));
+            }
+        }
+
     }
 }

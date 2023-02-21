@@ -3,6 +3,7 @@
     x:Class="UventoXF.Views.LoginPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:fonticons="clr-namespace:UventoXF.FontIcons"
     NavigationPage.HasNavigationBar="False">
 
@@ -30,8 +31,10 @@
                     <Entry
                         x:Name="EntryEmail"
                         FontSize="18"
+                        Keyboard="Email"
                         Placeholder="Email"
                         PlaceholderColor="white"
+                        Text="{Binding Email}"
                         TextColor="#fff" />
 
                 </Frame>
@@ -48,6 +51,7 @@
                         IsPassword="True"
                         Placeholder="Password"
                         PlaceholderColor="white"
+                        Text="{Binding Password}"
                         TextColor="#fff" />
 
                 </Frame>
@@ -94,6 +98,7 @@
                     FontFamily="MuliBold"
                     FontSize="18"
                     HeightRequest="60"
+                    IsEnabled="{Binding IsLoginEnabled}"
                     Text="Login"
                     TextColor="#fff" />
 
@@ -104,7 +109,7 @@
                     BackgroundColor="#FFF"
                     BorderColor="#FFF"
                     BorderWidth="1"
-                    Clicked="GoogleLogin"
+                    Clicked="btnLogin_Clicked"
                     CornerRadius="40"
                     FontFamily="MuliBold"
                     FontSize="18"
@@ -126,8 +131,7 @@
                 <Button
                     x:Name="RegisterBTN"
                     Margin="10,0,20,0"
-                    BackgroundColor="#FF6D00"
-                    BorderColor="#FD5A01"
+                    BackgroundColor="#888"
                     BorderWidth="1"
                     Clicked="Register_Clicked"
                     CornerRadius="40"
@@ -137,24 +141,13 @@
                     Text="SignUp"
                     TextColor="#fff" />
 
-                <Label
-                    Margin="10,5,0,0"
-                    FontSize="16"
-                    Text="Non sei registrato? Registrati qui"
-                    TextColor="white">
 
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NavigateToRegisterPageCommand}" NumberOfTapsRequired="1" />
-                    </Label.GestureRecognizers>
-                </Label>
                 <!--  TODO Agiungere pagina di registrazione  -->
 
 
             </StackLayout>
 
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding NavigateToRegisterPageCommand}" NumberOfTapsRequired="1" />
-            </Grid.GestureRecognizers>
+
 
         </Grid>
 

@@ -4,7 +4,9 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:control="clr-namespace:UventoXF.Controls"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:fonticons="clr-namespace:UventoXF.FontIcons"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     NavigationPage.HasNavigationBar="False">
 
     <Grid
@@ -51,18 +53,12 @@
                     Grid.Row="0"
                     Grid.Column="1"
                     Margin="0,30,20,0"
+                    xct:IconTintColorEffect.TintColor="White"
                     Aspect="AspectFit"
-                    HeightRequest="20"
-                    Source="notification"
-                    WidthRequest="20" />
-                <Image
-                    Grid.Row="0"
-                    Grid.Column="2"
-                    Margin="0,30,20,0"
-                    Aspect="AspectFit"
-                    HeightRequest="20"
-                    Source="menu"
-                    WidthRequest="20" />
+                    HeightRequest="25"
+                    Source="settingsgear"
+                    WidthRequest="25" />
+
                 <Grid
                     Grid.Row="1"
                     Grid.ColumnSpan="3"
@@ -70,10 +66,11 @@
                     ColumnDefinitions="*, auto"
                     RowDefinitions="auto, auto">
                     <Label
+                        x:Name="UserLogged"
                         Grid.Row="0"
                         FontFamily="MuliBlack"
                         FontSize="20"
-                        Text="Ciao, Fabio !" />
+                        Text="{Binding UserId, StringFormat='Ciao, {0}!'}" />
                     <Label
                         Grid.Row="1"
                         FontFamily="MuliBold"
@@ -88,13 +85,14 @@
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
                         WidthRequest="54" />
-                    <Image x:Name="AvatarIMG"
+                    <Image
+                        x:Name="AvatarIMG"
                         Grid.RowSpan="2"
                         Grid.Column="1"
                         Aspect="AspectFit"
                         HeightRequest="50"
                         HorizontalOptions="Center"
-                        Source=""
+                        Source="Avatar"
                         VerticalOptions="Center" />
                 </Grid>
                 <control:CalendarCarouselView
@@ -217,7 +215,7 @@
                         FontFamily="MaterialIcons"
                         FontSize="24"
                         HorizontalTextAlignment="Center"
-                        Text="{x:Static fonticons:FontIcons.StarOutline}"
+                        Text="{x:Static fonticons:FontIcons.Account}"
                         VerticalTextAlignment="Center" />
                     <Label
                         x:Name="lbFavorite"
@@ -226,7 +224,7 @@
                         FontSize="12"
                         HorizontalOptions="FillAndExpand"
                         HorizontalTextAlignment="Center"
-                        Text="Preferiti"
+                        Text="Profilo"
                         VerticalTextAlignment="Center" />
                 </Grid>
                 <Frame.GestureRecognizers>

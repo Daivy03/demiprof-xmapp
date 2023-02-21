@@ -21,15 +21,21 @@ namespace UventoXF.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
-
             base.OnCreate(savedInstanceState);
-
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState); // Aggiunto da Xamarin Essentials
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true); // Inizializza FFImageLoading
+
+            // Configura Google Sign-In
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DefaultSignIn)
+                .RequestEmail()
+                .Build();
+            GoogleSignInClient mGoogleSignInClient = GoogleSignIn.GetClient(this, gso);
+
+            LoadApplication(new App()); // Passa il client al costruttore dell'app
         }
+
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Android.Content.Intent data)
         {
@@ -37,7 +43,7 @@ namespace UventoXF.Droid
             if (requestCode == 1)
             {
                 GoogleSignInResult result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
-                GoogleManager.Instance.OnAuthCompleted(result);
+               // GoogleManager.Instance.OnAuthCompleted(result);
             }
         }
 
