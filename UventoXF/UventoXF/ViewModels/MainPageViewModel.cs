@@ -10,6 +10,13 @@ namespace UventoXF.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
+        private string userName;
+
+        public string UserName
+        {
+            get => userName;
+            set => SetProperty(ref userName, value);
+        }
         public MainPageViewModel(INavigation navigation)
         {
             Navigation = navigation;
@@ -21,7 +28,10 @@ namespace UventoXF.ViewModels
             loadEventTypes();
             loadEventItems();
             loadDates();
+            LoadUserName();
         }
+
+
 
         
         public string UserId
@@ -36,6 +46,15 @@ namespace UventoXF.ViewModels
                 {
                     return "Anonimo";
                 }
+            }
+        }
+        private async void LoadUserName()
+        {
+            var userId = App.Current.Properties["UserId"].ToString();
+            var user = await FirebaseHelper.GetUserById(userId);
+            if (user != null)
+            {
+                UserName = $"{user.FirstName} {user.LastName}";
             }
         }
 
