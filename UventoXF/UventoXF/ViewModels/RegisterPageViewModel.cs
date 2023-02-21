@@ -3,39 +3,26 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Firebase.Database;
+using UventoXF.ViewModel;
+using UventoXF.Views;
+using Xamarin.Forms;
 
 namespace UventoXF.ViewModels
 {
-    internal class RegisterPageViewModel
+    public class RegisterPageViewModel : BaseViewModel
     {
-        private FirebaseClient firebaseClient;
+        public Command NavigateToLoginPageCommand { get; }
 
-        public RegisterPageViewModel()
+        public RegisterPageViewModel(INavigation navigation)
         {
-            firebaseClient = new FirebaseClient("https://demiprof-b12be-default-rtdb.europe-west1.firebasedatabase.app");
+            Navigation = navigation;
+            NavigateToLoginPageCommand = new Command(async () => await ExecuteNavigateToLoginPageCommand());
         }
 
-        public async Task RegisterUser(string username, string email, string password)
+        private async Task ExecuteNavigateToLoginPageCommand()
         {
-            var user = new User
-            {
-                Username = username,
-                Email = email,
-                Password = password
-            };
-
-            // Path to the node where the user data will be stored
-            var path = "users/" + username;
-
-            // Push the user data to Firebase Realtime Database
-          //  await firebaseClient.Child(path).PutAsync(user);
+            await Navigation.PushAsync(new LoginPage());
         }
-    }
 
-    public class User
-    {
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
     }
 }

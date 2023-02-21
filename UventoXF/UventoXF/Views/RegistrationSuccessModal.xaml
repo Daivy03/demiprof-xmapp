@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="UventoXF.Views.RegistrationSuccessModal"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label FontSize="Medium" Text="Registrazione completata con successo!" />
+        <Button Command="{Binding ClosePopupCommand}" Text="OK" />
+    </StackLayout>
+</pages:PopupPage>

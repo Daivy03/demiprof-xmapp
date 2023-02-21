@@ -1,149 +1,166 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage 
+<ContentPage
     x:Class="UventoXF.Views.LoginPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"    
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:fonticons="clr-namespace:UventoXF.FontIcons"
     NavigationPage.HasNavigationBar="False">
 
     <StackLayout>
-        <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto">
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="25">
             <StackLayout Grid.Row="4">
                 <Image
                     HorizontalOptions="Center"
-                    WidthRequest="300"
-                    Source="demiproflogo"/>
+                    Source="demiproflogo"
+                    WidthRequest="300" />
 
-                <Frame BorderColor="#fff"
-                       BackgroundColor="Transparent"
-                       Margin="10"
-                       Padding="0"
-                       CornerRadius="30">
-                    
-                </Frame>
-                <Frame BorderColor="#fff"
-                       BackgroundColor="Transparent"
-                       Margin="10"
-                       Padding="20,0,25,0"
-                       HeightRequest="60"
-                       CornerRadius="30">
-                    <Entry TextColor="#fff"
-                           FontSize="18"
-                           x:Name="EntryEmail"
-                           Placeholder="Email"
-                           PlaceholderColor="white"/>
-
-                </Frame>
-                <Frame BorderColor="#fff"
-                       BackgroundColor="Transparent"
-                       Margin="10"
-                       Padding="20,0,25,0"
-                       HeightRequest="60"
-                       CornerRadius="30">
-                    <Entry TextColor="#fff"
-                           FontSize="18"
-                           Placeholder="Password"
-                           PlaceholderColor="white"
-                           IsPassword="True"
-                           x:Name="EntryPassword"/>
+                <Frame
+                    Margin="10"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="#fff"
+                    CornerRadius="30" />
+                <Frame
+                    Margin="10"
+                    Padding="20,0,25,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="#fff"
+                    CornerRadius="30"
+                    HeightRequest="60">
+                    <Entry
+                        x:Name="EntryEmail"
+                        FontSize="18"
+                        Placeholder="Email"
+                        PlaceholderColor="white"
+                        TextColor="#fff" />
 
                 </Frame>
-                
+                <Frame
+                    Margin="10"
+                    Padding="20,0,25,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="#fff"
+                    CornerRadius="30"
+                    HeightRequest="60">
+                    <Entry
+                        x:Name="EntryPassword"
+                        FontSize="18"
+                        IsPassword="True"
+                        Placeholder="Password"
+                        PlaceholderColor="white"
+                        TextColor="#fff" />
+
+                </Frame>
+
                 <RelativeLayout Padding="25">
 
                     <CheckBox
-                        Color="white"
-                        IsChecked="False"
                         x:Name="Checkbox"
-                        Margin="15,0,0,0"/>
-                    <!-- TODO: Aggiungere metodo che controlla il cambio della casella che mostra la password -->
-                    <!--CheckedChanged="CheckBox_CheckedChanged"-->
+                        Margin="15,0,0,0"
+                        IsChecked="False"
+                        Color="white" />
+                    <!--  TODO: Aggiungere metodo che controlla il cambio della casella che mostra la password  -->
+                    <!--  CheckedChanged="CheckBox_CheckedChanged"  -->
 
 
                     <Label
-                            Text="Mostra Password"
-                            TextColor="white"
-                            FontSize="18"
-                            RelativeLayout.XConstraint="50"
-                            RelativeLayout.YConstraint="3"/>
-                    <!-- TODO: Aggiungere metodo per recupero della password -->
+                        FontSize="18"
+                        RelativeLayout.XConstraint="50"
+                        RelativeLayout.YConstraint="3"
+                        Text="Mostra Password"
+                        TextColor="white" />
+                    <!--  TODO: Aggiungere metodo per recupero della password  -->
                     <Button
                         x:Name="PasswordDimenticata"
-                        Text="Password Dimenticata?"
-                        TextColor="white"
+                        BackgroundColor="Transparent"
                         FontFamily="MuliBold"
                         FontSize="17"
-                        BackgroundColor="Transparent"
                         RelativeLayout.XConstraint="205"
                         RelativeLayout.YConstraint="-8"
-                        
-                        TextTransform="None"/>
-                    <!--Clicked="PasswordDimenticata_Clicked"-->
+                        Text="Password Dimenticata?"
+                        TextColor="white"
+                        TextTransform="None" />
+                    <!--  Clicked="PasswordDimenticata_Clicked"  -->
                 </RelativeLayout>
-                
+
                 <Button
                     x:Name="LoginBTN"
-                    Text="Login"
-                    TextColor="#fff"
-                    FontFamily="MuliBold"
+                    Margin="10,0,20,0"
+                    BackgroundColor="#FF6D00"
                     BorderColor="#FD5A01"
                     BorderWidth="1"
-                    Margin="10,0,20,0"
-                    FontSize="18"
                     Clicked="LoginAuth"
-                    HeightRequest="60"
                     CornerRadius="40"
-                    BackgroundColor="#FF6D00"/>
-               
+                    FontFamily="MuliBold"
+                    FontSize="18"
+                    HeightRequest="60"
+                    Text="Login"
+                    TextColor="#fff" />
+
                 <Button
                     x:Name="GLoginBTN"
-                    Text="Login con Google"
-                    TextColor="#000"
-                    FontFamily="MuliBold"
+                    Margin="10,1,20,10"
+                    Padding="15"
+                    BackgroundColor="#FFF"
                     BorderColor="#FFF"
                     BorderWidth="1"
-                    Padding="15"
-                    Margin="10,1,20,10"
-                    FontSize="18"
                     Clicked="GoogleLogin"
-                    HeightRequest="60"
                     CornerRadius="40"
-                    
-                    BackgroundColor="#FFF">
+                    FontFamily="MuliBold"
+                    FontSize="18"
+                    HeightRequest="60"
+                    Text="Login con Google"
+                    TextColor="#000">
 
 
 
                     <Button.ImageSource>
 
-                        <FileImageSource
-                            File="google">
-                        </FileImageSource>
+                        <FileImageSource File="google" />
 
 
                     </Button.ImageSource>
 
                 </Button>
 
-                <Label
-                            Margin="10,5,0,0"
-                            Text="Non sei registrato? Registrati qui"
-                            TextColor="white"
-                            FontSize="16" />
-                <!-- TODO Agiungere pagina di registrazione-->
+                <Button
+                    x:Name="RegisterBTN"
+                    Margin="10,0,20,0"
+                    BackgroundColor="#FF6D00"
+                    BorderColor="#FD5A01"
+                    BorderWidth="1"
+                    Clicked="Register_Clicked"
+                    CornerRadius="40"
+                    FontFamily="MuliBold"
+                    FontSize="18"
+                    HeightRequest="60"
+                    Text="SignUp"
+                    TextColor="#fff" />
 
+                <Label
+                    Margin="10,5,0,0"
+                    FontSize="16"
+                    Text="Non sei registrato? Registrati qui"
+                    TextColor="white">
+
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToRegisterPageCommand}" NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <!--  TODO Agiungere pagina di registrazione  -->
 
 
             </StackLayout>
 
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding NavigateToMainPageCommand}" NumberOfTapsRequired="1" />
+                <TapGestureRecognizer Command="{Binding NavigateToRegisterPageCommand}" NumberOfTapsRequired="1" />
             </Grid.GestureRecognizers>
 
         </Grid>
-        
+
     </StackLayout>
-    
-    
+
+
     <!--<Grid>
         <Grid Margin="20,15,0,0" ColumnDefinitions="auto, auto">
             <Label
@@ -167,5 +184,5 @@
             </Grid.GestureRecognizers>
         </Grid>
     </Grid>-->
-    
+
 </ContentPage>

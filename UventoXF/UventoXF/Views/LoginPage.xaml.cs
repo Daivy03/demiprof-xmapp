@@ -11,6 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using UventoXF.Views;
+using UventoXF.Helpers;
+using Plugin.Toast;
+using UventoXF.Interfaces;
 
 
 namespace UventoXF.Views
@@ -20,19 +23,27 @@ namespace UventoXF.Views
     {
         private readonly IGoogleManager _googleManager;
         GoogleUser GoogleUser = new GoogleUser();
-        
+        FirebaseHelper FirebaseHelper = new FirebaseHelper();
+
 
 
         public bool IsLogedIn { get; set; }
+
+
+
+        private async void Register_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterPage());
+        }
 
         public LoginPage()
         {
             InitializeComponent();
             _googleManager = DependencyService.Get<IGoogleManager>();
             CheckUserLoggedIn();
-         //   BindingContext = new LoginPageViewModel(Navigation);
+            BindingContext = new LoginPageViewModel(Navigation);
 
-            
+
         }
         private void CheckUserLoggedIn()
         {
@@ -58,14 +69,14 @@ namespace UventoXF.Views
                 }
                 else
                 {
-                    DisplayAlert("Message", message, "Ok");
+                    DisplayAlert("Login non riuscito!", message, "Ok");
                 }
             }
             catch
             {
 
             }
-           
+
         }
         private void GoogleLogout()
         {
@@ -90,10 +101,41 @@ namespace UventoXF.Views
         {
             App.Current.MainPage = new MainPage();
         }
-        
-        public void LoginAuth(object sender, EventArgs e)
+
+        public async void LoginAuth(object sender, EventArgs e)
         {
-            App.Current.MainPage = new MainPage();
+            //TODO: Crash app durante la visualizzazione del popup toast
+
+            // Recupera l'indirizzo email e la password inseriti dall'utente
+            string email = EntryEmail.Text;
+            string password = EntryPassword.Text;
+
+            // Verifica se l'utente esiste nel database Firebase
+            bool userExists = await FirebaseHelper.CheckIfUserExists(email);
+
+            if (userExists)
+            {
+                // Recupera l'utente dal database Firebase
+                User user = await FirebaseHelper.GetUserByEmail(email);
+
+                // Verifica se la password inserita corrisponde alla password memorizzata nel database
+                if (user.Password == password)
+                {
+                    // La password è corretta, esegui il login
+                    DependencyService.Get<IToast>().Show("Accesso eseguito correttamente!");
+                    App.Current.MainPage = new MainPage();
+                }
+                else
+                {
+                    // La password non corrisponde, mostra un messaggio di errore
+                    DependencyService.Get<IToast>().Show("La password inserita non è corretta.");
+                }
+            }
+            else
+            {
+                // L'utente non esiste, mostra un messaggio di errore
+                DependencyService.Get<IToast>().Show("L'indirizzo email inserito non è associato ad alcun account.");
+            }
         }
 
     }
