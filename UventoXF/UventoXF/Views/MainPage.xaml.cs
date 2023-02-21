@@ -26,9 +26,17 @@ namespace UventoXF.Views
 
             // Recupera l'utente dal database Firebase utilizzando l'ID
             User user = await FirebaseHelper.GetUserById(userId);
+            if (user != null)
+            {
+                // Imposta il nome dell'utente sulla Label "UserLogged"
+                UserLogged.Text = $"Ciao, {user.FirstName} {user.LastName}!";
+            }
+            else
+            {
+                UserLogged.Text = "Anonimo";
+            }
 
-            // Imposta il nome dell'utente sulla Label "UserLogged"
-            UserLogged.Text = $"Ciao, {user.FirstName} {user.LastName}!";
+            
         }
 
 

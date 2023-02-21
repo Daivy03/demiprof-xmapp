@@ -58,24 +58,24 @@ namespace DemiProf.Droid
             _onLoginComplete?.Invoke(null, result.ErrorMessage);
         }
 
-        public static async void OnAuthCompleted(GoogleSignInAccount account)
-        {
-            if (account != null)
-            {
-                var pictureUrl = account.PhotoUrl?.ToString();
+        //public static async void OnAuthCompleted(GoogleSignInAccount account)
+        //{
+        //    if (account != null)
+        //    {
+        //        var pictureUrl = account.PhotoUrl?.ToString();
 
-                _onLoginComplete?.Invoke(new GoogleUser()
-                {
-                    Name = account.DisplayName,
-                    Email = account.Email,
-                    //Picture = pictureUrl
-                }, string.Empty);
-            }
-            else
-            {
-                _onLoginComplete?.Invoke(null, "An error occurred!");
-            }
-        }
+        //        _onLoginComplete?.Invoke(new GoogleUser()
+        //        {
+        //            Name = account.DisplayName,
+        //            Email = account.Email,
+        //            //Picture = pictureUrl
+        //        }, string.Empty);
+        //    }
+        //    else
+        //    {
+        //        _onLoginComplete?.Invoke(null, "An error occurred!");
+        //    }
+        //}
 
     }
 }
