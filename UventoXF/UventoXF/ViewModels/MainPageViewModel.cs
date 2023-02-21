@@ -23,6 +23,22 @@ namespace UventoXF.ViewModels
             loadDates();
         }
 
+        
+        public string UserId
+        {
+            get
+            {
+                if (App.Current.Properties.ContainsKey("UserId"))
+                {
+                    return (string)App.Current.Properties["UserId"];
+                }
+                else
+                {
+                    return "Anonimo";
+                }
+            }
+        }
+
         public Command SelectDateCommand { get; }
         public Command SelectEventTypeCommand { get; }
         public ObservableCollection<EventType> EventTypes { get; }

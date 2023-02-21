@@ -101,14 +101,17 @@ namespace UventoXF.Views
         {
             App.Current.MainPage = new MainPage();
         }
+        
 
         public async void LoginAuth(object sender, EventArgs e)
         {
             //TODO: Crash app durante la visualizzazione del popup toast
 
             // Recupera l'indirizzo email e la password inseriti dall'utente
-            string email = EntryEmail.Text;
-            string password = EntryPassword.Text;
+            string email = EntryEmail?.Text;
+            string password = EntryPassword?.Text;
+
+            
 
             // Verifica se l'utente esiste nel database Firebase
             bool userExists = await FirebaseHelper.CheckIfUserExists(email);
@@ -119,24 +122,27 @@ namespace UventoXF.Views
                 User user = await FirebaseHelper.GetUserByEmail(email);
 
                 // Verifica se la password inserita corrisponde alla password memorizzata nel database
-                if (user.Password == password)
+                if (user?.Password == password)
                 {
                     // La password è corretta, esegui il login
-                    DependencyService.Get<IToast>().Show("Accesso eseguito correttamente!");
+                    App.Current.Properties["UserId"] = user.Id;
+                    await App.Current.SavePropertiesAsync();
+                    //DependencyService.Get<IToast>().Show("Accesso eseguito correttamente!");
                     App.Current.MainPage = new MainPage();
                 }
                 else
                 {
                     // La password non corrisponde, mostra un messaggio di errore
-                    DependencyService.Get<IToast>().Show("La password inserita non è corretta.");
+                    //DependencyService.Get<IToast>().Show("La password inserita non è corretta.");
                 }
             }
             else
             {
                 // L'utente non esiste, mostra un messaggio di errore
-                DependencyService.Get<IToast>().Show("L'indirizzo email inserito non è associato ad alcun account.");
+                //DependencyService.Get<IToast>().Show("L'indirizzo email inserito non è associato ad alcun account.");
             }
         }
+
 
     }
 }

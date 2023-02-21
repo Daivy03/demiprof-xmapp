@@ -1,4 +1,5 @@
-﻿using UventoXF.ViewModels;
+﻿using UventoXF.Models;
+using UventoXF.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,10 +11,26 @@ namespace UventoXF.Views
         public MainPage()
         {
             InitializeComponent();
+            
             BindingContext = new MainPageViewModel(Navigation);
             SetLayoutFrame();
             
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            // Recupera l'ID dell'utente dalla proprietà "UserId"
+            string userId = App.Current.Properties["UserId"].ToString();
+
+            // Recupera l'utente dal database Firebase utilizzando l'ID
+            User user = await FirebaseHelper.GetUserById(userId);
+
+            // Imposta il nome dell'utente sulla Label "UserLogged"
+            UserLogged.Text = $"Ciao, {user.FirstName} {user.LastName}!";
+        }
+
 
         private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
         {
@@ -25,7 +42,7 @@ namespace UventoXF.Views
                     gridFrames.ColumnDefinitions[1].Width = GridLength.Auto;
                     gridFrames.ColumnDefinitions[2].Width = GridLength.Auto;
                     frmHome.Padding = new Thickness(22, 5);
-                    frmHome.BackgroundColor = Color.FromHex("#102733");
+                    frmHome.BackgroundColor = Color.FromHex("#1a1a1a");
                     lbHome.IsVisible = true;
                     lbHome.TextColor = Color.FromHex("#FF6D00");
                     lbIconHome.TextColor = Color.FromHex("#FF6D00");
@@ -51,7 +68,7 @@ namespace UventoXF.Views
                     lbHome.TextColor = Color.White;
                     lbIconHome.TextColor = Color.White;
                     frmSearch.Padding = new Thickness(22, 5);
-                    frmSearch.BackgroundColor = Color.FromHex("#102733");
+                    frmSearch.BackgroundColor = Color.FromHex("#1a1a1a");
                     lbSearch.IsVisible = true;
                     lbSearch.TextColor = Color.FromHex("#FF6D00");
                     lbIconSearch.TextColor = Color.FromHex("#FF6D00");
@@ -77,7 +94,7 @@ namespace UventoXF.Views
                     lbSearch.TextColor = Color.White;
                     lbIconSearch.TextColor = Color.White;
                     frmFavorite.Padding = new Thickness(22, 5);
-                    frmFavorite.BackgroundColor = Color.FromHex("#102733");
+                    frmFavorite.BackgroundColor = Color.FromHex("#1a1a1a");
                     lbFavorite.IsVisible = true;
                     lbFavorite.TextColor = Color.FromHex("#FF6D00");
                     lbIconFavorite.TextColor = Color.FromHex("#FF6D00");
@@ -91,7 +108,7 @@ namespace UventoXF.Views
             gridFrames.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
             gridFrames.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
             frameHome.Padding = new Thickness(22, 5);
-            frameHome.BackgroundColor = Color.FromHex("#102733");
+            frameHome.BackgroundColor = Color.FromHex("#1a1a1a");
             lbHome.IsVisible = true;
             frameSearch.Padding = new Thickness(0);
             frameSearch.BackgroundColor = Color.Transparent;

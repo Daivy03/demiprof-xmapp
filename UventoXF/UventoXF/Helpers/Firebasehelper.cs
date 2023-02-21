@@ -3,6 +3,7 @@ using Firebase.Database.Query;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UventoXF.Helpers;
 using UventoXF.Models;
 
 public class FirebaseHelper
@@ -11,7 +12,7 @@ public class FirebaseHelper
 
     public FirebaseHelper()
     {
-        firebase = new FirebaseClient("https://demiprof-b12be-default-rtdb.europe-west1.firebasedatabase.app/");
+        firebase = new FirebaseClient(FirebaseConfig.FirebaseUrl);
     }
 
     public async Task<List<User>> GetAllUsers()
@@ -22,6 +23,7 @@ public class FirebaseHelper
 
         return users.Select(u => new User
         {
+            Id = u.Object.Id,
             Email = u.Object.Email,
             FirstName = u.Object.FirstName,
             LastName = u.Object.LastName,
@@ -34,6 +36,14 @@ public class FirebaseHelper
         var users = await GetAllUsers();
         return users.FirstOrDefault(u => u.Email == email);
     }
+
+    public static async Task<User> GetUserById(string id)
+    {
+        var firebase = new FirebaseClient(FirebaseConfig.FirebaseUrl);
+        var users = await firebase.Child("users").OnceAsync<User>();
+        return users.Where(u => u.Object.Id == id).Select(u => u.Object).FirstOrDefault();
+    }
+
     public async Task<bool> CheckIfUserExists(string email)
     {
         var result = await firebase
