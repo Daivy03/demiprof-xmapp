@@ -9,6 +9,7 @@ namespace UventoXF.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public object Id { get; internal set; }
+        public string UserId { get; internal set; }
 
         public User(string firstName, string lastName, string email, string password)
         {
