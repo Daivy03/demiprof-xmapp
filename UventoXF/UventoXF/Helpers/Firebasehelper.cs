@@ -33,8 +33,8 @@ public class FirebaseHelper
 
     public async Task<User> GetUserByEmail(string email)
     {
-        var users = await GetAllUsers();
-        return users.FirstOrDefault(u => u.Email == email);
+        var currentUser = await GetUserByEmail(email);
+        return string.IsNullOrEmpty(currentUser.FirstName) ? "Utente" : currentUser.FirstName;
     }
 
     public static async Task<User> GetUserById(string id)

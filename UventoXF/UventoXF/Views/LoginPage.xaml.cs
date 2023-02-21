@@ -125,8 +125,16 @@ namespace UventoXF.Views
                 if (user?.Password == password)
                 {
                     // La password è corretta, esegui il login
-                    App.Current.Properties["UserId"] = user.Id;
-                    await App.Current.SavePropertiesAsync();
+                    
+                    if(user.Id != null)
+                    {
+                        App.Current.Properties["UserId"] = user.Id;
+                        await App.Current.SavePropertiesAsync();
+                    }
+                    else
+                    {
+                        
+                    }
                     //DependencyService.Get<IToast>().Show("Accesso eseguito correttamente!");
                     App.Current.MainPage = new MainPage();
                 }
