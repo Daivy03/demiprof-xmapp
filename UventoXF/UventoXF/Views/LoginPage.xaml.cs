@@ -45,6 +45,18 @@ namespace UventoXF.Views
 
 
         }
+        private void OnShowPasswordCheckboxCheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            if (e.Value)
+            {
+                EntryPassword.IsPassword = false;
+            }
+            else
+            {
+                EntryPassword.IsPassword = true;
+            }
+        }
+
         private void CheckUserLoggedIn()
         {
             _googleManager.Login(OnLoginComplete);
@@ -126,15 +138,15 @@ namespace UventoXF.Views
                 {
                     // La password è corretta, esegui il login
                     
-                    if(user.Id != null)
-                    {
-                        App.Current.Properties["UserId"] = user.Id;
-                        await App.Current.SavePropertiesAsync();
-                    }
-                    else
-                    {
+                    //if(user.Id != null)
+                    //{
+                    //    App.Current.Properties["UserId"] = user.Id;
+                    //    await App.Current.SavePropertiesAsync();
+                    //}
+                    //else
+                    //{
                         
-                    }
+                    //}
                     //DependencyService.Get<IToast>().Show("Accesso eseguito correttamente!");
                     App.Current.MainPage = new MainPage();
                 }

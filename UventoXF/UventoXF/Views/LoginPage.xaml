@@ -61,6 +61,7 @@
                     <CheckBox
                         x:Name="Checkbox"
                         Margin="15,0,0,0"
+                        CheckedChanged="OnShowPasswordCheckboxCheckedChanged"
                         IsChecked="False"
                         Color="white" />
                     <!--  TODO: Aggiungere metodo che controlla il cambio della casella che mostra la password  -->
@@ -73,6 +74,7 @@
                         RelativeLayout.YConstraint="3"
                         Text="Mostra Password"
                         TextColor="white" />
+
                     <!--  TODO: Aggiungere metodo per recupero della password  -->
                     <Button
                         x:Name="PasswordDimenticata"
