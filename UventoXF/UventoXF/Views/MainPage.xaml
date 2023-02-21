@@ -72,7 +72,7 @@
                         Grid.Row="0"
                         FontFamily="MuliBlack"
                         FontSize="20"
-                        Text="{Binding UserId.FirstName}" />
+                        Text="{Binding UserId.FirstName, StringFormat='Logged as {0}'}" />
                     <Label
                         Grid.Row="1"
                         FontFamily="MuliBold"

@@ -10,13 +10,24 @@ namespace UventoXF.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
-        private string userName;
-
+        private User _userId;
+        public User UserId
+        {
+            get => _userId;
+            set => SetProperty(ref _userId, value);
+        }
+        private string _userName;
         public string UserName
         {
-            get => userName;
-            set => SetProperty(ref userName, value);
+            get { return _userName; }
+            set
+            {
+                _userName = value;
+                OnPropertyChanged(nameof(UserName));
+            }
         }
+
+
         public MainPageViewModel(INavigation navigation)
         {
             Navigation = navigation;
@@ -34,20 +45,20 @@ namespace UventoXF.ViewModels
 
 
         
-        public string UserId
-        {
-            get
-            {
-                if (App.Current.Properties.ContainsKey("UserId"))
-                {
-                    return (string)App.Current.Properties["UserId"];
-                }
-                else
-                {
-                    return "Anonimo";
-                }
-            }
-        }
+        //public string UserId
+        //{
+        //    get
+        //    {
+        //        if (App.Current.Properties.ContainsKey("UserId"))
+        //        {
+        //            return (string)App.Current.Properties["UserId"];
+        //        }
+        //        else
+        //        {
+        //            return "Anonimo";
+        //        }
+        //    }
+        //}
         private async void LoadUserName()
         {
             var userId = App.Current.Properties["UserId"].ToString();
@@ -55,10 +66,11 @@ namespace UventoXF.ViewModels
             if (user != null)
             {
                 UserName = $"{user.FirstName} {user.LastName}";
+
             }
             else
             {
-                userName = "Anonimo";
+                //UserName = "Anonimo";
             }
         }
 
