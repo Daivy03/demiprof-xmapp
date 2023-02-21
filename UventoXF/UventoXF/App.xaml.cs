@@ -11,6 +11,9 @@ namespace UventoXF
             InitializeComponent();
 
             MainPage = new NavigationPage(new StartPage());
+            NavigationPage navigationPage = new NavigationPage(new RegisterPage());
+            NavigationPage.SetHasNavigationBar(navigationPage, false);
+            
 
             if (Device.RuntimePlatform == Device.iOS)
                 DependencyService.Get<IStatusbarColor>().ChangeStatusbarColor();

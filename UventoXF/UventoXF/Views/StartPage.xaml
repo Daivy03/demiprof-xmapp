@@ -59,7 +59,7 @@
                     VerticalOptions="FillAndExpand"
                     VerticalTextAlignment="Center" />
                 <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateToMainPageCommand}" NumberOfTapsRequired="1" />
+                    <TapGestureRecognizer Command="{Binding NavigateToLoginPageCommand}" NumberOfTapsRequired="1" />
                 </Grid.GestureRecognizers>
             </Grid>
         </StackLayout>

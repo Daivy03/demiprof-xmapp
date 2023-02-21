@@ -1,14 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UventoXF.Views.RegisterPage">
-    <StackLayout>
-        <Entry Placeholder="First Name" Keyboard="Text" x:Name="FirstNameEntry"/>
-        <Entry Placeholder="Last Name" Keyboard="Text" x:Name="LastNameEntry"/>
-        <Entry Placeholder="Email" Keyboard="Email" x:Name="EmailEntry"/>
-        <Entry Placeholder="Password" IsPassword="true" x:Name="PasswordEntry"/>
+<ContentPage
+    x:Class="UventoXF.Views.RegisterPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:NavigationPage="http://xamarin.com/schemas/2014/forms/navigation">
 
-        <Button Text="Register" Clicked="OnRegisterButtonClicked"/>
+    <StackLayout>
+        <Entry
+            x:Name="FirstNameEntry"
+            Keyboard="Text"
+            Placeholder="First Name"
+            PlaceholderColor="#6B728E"
+            TextColor="white" />
+        <Entry
+            x:Name="LastNameEntry"
+            Keyboard="Text"
+            Placeholder="Last Name"
+            PlaceholderColor="#6B728E"
+            TextColor="white" />
+        <Entry
+            x:Name="EmailEntry"
+            Keyboard="Email"
+            Placeholder="Email"
+            PlaceholderColor="#6B728E"
+            TextColor="white" />
+        <Entry
+            x:Name="PasswordEntry"
+            IsPassword="true"
+            Placeholder="Password"
+            PlaceholderColor="#6B728E"
+            TextColor="white" />
+        <Entry
+            x:Name="ConfirmPasswordEntry"
+            IsPassword="true"
+            Placeholder="Repeat Password"
+            PlaceholderColor="#6B728E"
+            TextColor="white" />
+        <!--<Label
+            x:Name="RegistrationMessageLabel"
+            FontSize="Medium"
+            HorizontalOptions="CenterAndExpand"
+            TextColor="Green"
+            VerticalOptions="CenterAndExpand" />-->
+
+
+        <Button Clicked="OnSignUpClicked" Text="Sign up" />
     </StackLayout>
-    
+
 </ContentPage>

@@ -11,10 +11,10 @@ namespace UventoXF.ViewModels
         public StartPageViewModel(INavigation navigation)
         {
             Navigation = navigation;
-            NavigateToMainPageCommand = new Command(async () => await ExecuteNavigateToLoginPageCommand());
+            NavigateToLoginPageCommand = new Command(async () => await ExecuteNavigateToLoginPageCommand());
         }
 
-        public Command NavigateToMainPageCommand { get; }
+        public Command NavigateToLoginPageCommand { get; }
 
         private async Task ExecuteNavigateToLoginPageCommand()
         {
