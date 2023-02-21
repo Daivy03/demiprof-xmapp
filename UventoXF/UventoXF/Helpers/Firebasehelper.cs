@@ -41,7 +41,7 @@ public class FirebaseHelper
     {
         var firebase = new FirebaseClient(FirebaseConfig.FirebaseUrl);
         var users = await firebase.Child("users").OnceAsync<User>();
-        return users.Where(u => u.Object.Id == id).Select(u => u.Object).FirstOrDefault();
+        return users.Where(u => (string)u.Object.Id == id).Select(u => u.Object).FirstOrDefault();
     }
 
     public async Task<bool> CheckIfUserExists(string email)

@@ -3,40 +3,93 @@
     x:Class="UventoXF.Views.RegisterPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:NavigationPage="http://xamarin.com/schemas/2014/forms/navigation">
+    xmlns:NavigationPage="http://xamarin.com/schemas/2014/forms/navigation"
+    NavigationPage.HasNavigationBar="False">
 
     <StackLayout>
-        <Entry
-            x:Name="FirstNameEntry"
-            Keyboard="Text"
-            Placeholder="First Name"
-            PlaceholderColor="#6B728E"
-            TextColor="white" />
-        <Entry
-            x:Name="LastNameEntry"
-            Keyboard="Text"
-            Placeholder="Last Name"
-            PlaceholderColor="#6B728E"
-            TextColor="white" />
-        <Entry
-            x:Name="EmailEntry"
-            Keyboard="Email"
-            Placeholder="Email"
-            PlaceholderColor="#6B728E"
-            TextColor="white" />
-        <Entry
-            x:Name="PasswordEntry"
-            IsPassword="true"
-            Placeholder="Password"
-            PlaceholderColor="#6B728E"
-            TextColor="white" />
-        <Entry
-            x:Name="ConfirmPasswordEntry"
-            IsPassword="true"
-            Placeholder="Repeat Password"
-            PlaceholderColor="#6B728E"
-            TextColor="white" />
-        <!--<Label
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="25">
+            <StackLayout Grid.Row="4">
+                <Image
+                    Margin="0,-30"
+                    HorizontalOptions="Center"
+                    Source="demiproflogo"
+                    WidthRequest="300" />
+                <Frame Margin="10" BackgroundColor="Transparent">
+                    <Label
+                        FontSize="18"
+                        HorizontalTextAlignment="Center"
+                        Text="Registrazione"
+                        TextColor="white" />
+                </Frame>
+
+
+                <Frame
+                    Margin="10"
+                    Padding="20,0,25,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="#fff"
+                    CornerRadius="10">
+                    <Entry
+                        x:Name="FirstNameEntry"
+                        FontSize="18"
+                        Keyboard="Text"
+                        Placeholder="Nome"
+                        PlaceholderColor="#6B728E"
+                        TextColor="white" />
+                </Frame>
+                <Frame
+                    Margin="10"
+                    Padding="20,0,25,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="#fff"
+                    CornerRadius="10">
+                    <Entry
+                        x:Name="LastNameEntry"
+                        Keyboard="Text"
+                        Placeholder="Cognome"
+                        PlaceholderColor="#6B728E"
+                        TextColor="white" />
+                </Frame>
+                <Frame
+                    Margin="10"
+                    Padding="20,0,25,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="#fff"
+                    CornerRadius="10">
+                    <Entry
+                        x:Name="EmailEntry"
+                        Keyboard="Email"
+                        Placeholder="Email"
+                        PlaceholderColor="#6B728E"
+                        TextColor="white" />
+                </Frame>
+                <Frame
+                    Margin="10"
+                    Padding="20,0,25,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="#fff"
+                    CornerRadius="10">
+                    <Entry
+                        x:Name="PasswordEntry"
+                        IsPassword="true"
+                        Placeholder="Password"
+                        PlaceholderColor="#6B728E"
+                        TextColor="white" />
+                </Frame>
+                <Frame
+                    Margin="10,0"
+                    Padding="20,0,25,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="#fff"
+                    CornerRadius="10">
+                    <Entry
+                        x:Name="ConfirmPasswordEntry"
+                        IsPassword="true"
+                        Placeholder="Repeat Password"
+                        PlaceholderColor="#6B728E"
+                        TextColor="white" />
+                </Frame>
+                <!--<Label
             x:Name="RegistrationMessageLabel"
             FontSize="Medium"
             HorizontalOptions="CenterAndExpand"
@@ -44,7 +97,24 @@
             VerticalOptions="CenterAndExpand" />-->
 
 
-        <Button Clicked="OnSignUpClicked" Text="Sign up" />
+                <!--<Button Clicked="OnSignUpClicked" Text="Sign up" />-->
+                <Frame Padding="20,20,25,0" BackgroundColor="Transparent">
+                    <Button
+                        x:Name="SignUpBTN"
+                        Margin="10,10"
+                        BackgroundColor="#FF6D00"
+                        BorderColor="#FD5A01"
+                        BorderWidth="1"
+                        Clicked="OnSignUpClicked"
+                        CornerRadius="40"
+                        FontFamily="MuliBold"
+                        FontSize="18"
+                        HeightRequest="60"
+                        Text="Sign up"
+                        TextColor="#fff" />
+                </Frame>
+            </StackLayout>
+        </Grid>
     </StackLayout>
 
 </ContentPage>

@@ -56,6 +56,10 @@ namespace UventoXF.ViewModels
             {
                 UserName = $"{user.FirstName} {user.LastName}";
             }
+            else
+            {
+                userName = "Anonimo";
+            }
         }
 
         public Command SelectDateCommand { get; }
