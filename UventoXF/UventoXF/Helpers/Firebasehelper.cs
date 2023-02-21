@@ -33,9 +33,13 @@ public class FirebaseHelper
 
     public async Task<User> GetUserByEmail(string email)
     {
-        var currentUser = await GetUserByEmail(email);
-        return string.IsNullOrEmpty(currentUser.FirstName) ? "Utente" : currentUser.FirstName;
+        var firebase = new FirebaseClient(FirebaseConfig.FirebaseUrl);
+        var user = (await firebase.Child("users")
+                                   .OnceAsync<User>())
+                                   .FirstOrDefault(x => x.Object.Email == email)?.Object;
+        return user;
     }
+
 
     public static async Task<User> GetUserById(string id)
     {
